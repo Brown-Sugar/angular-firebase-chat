@@ -10,16 +10,15 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
   msgVal = '';
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
-    this.items = af.list('/messages', {
+    this.items = af.list('/test_results', {
       query: {
-        limitToLast: 50
+        limitToLast: 10
       }
     });
 
@@ -28,15 +27,16 @@ export class AppComponent {
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider)
+      .then((user) => localStorage.setItem('user', user.user.displayName));
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut().then(() => localStorage.removeItem('user'));
   }
 
-  Send(desc: string) {
-    this.items.push({ message: desc});
+  Send(message: string) {
+    this.items.push({message: message, user: localStorage.getItem('user')});
     this.msgVal = '';
   }
 }

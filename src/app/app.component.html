@@ -4,7 +4,7 @@
 
   <input [(ngModel)]="msgVal"  type="text" id="message" *ngIf="(user | async)?.uid" (keyup.enter)="Send($event.target.value)"/>
   <div id="details-container">
-    <p *ngFor="let item of items | async">{{item.message}}</p>
+    <p *ngFor="let item of items | async"><b>{{item.name}} ({{item.created | date:'EEE, d MMM,y'}}) :</b> {{item.result}}</p>
   </div>
 </div>
 

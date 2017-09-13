@@ -11,7 +11,7 @@ input#message {
 
 #details-container {
   display:flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   flex-wrap:wrap;
   width:100%;
 }
