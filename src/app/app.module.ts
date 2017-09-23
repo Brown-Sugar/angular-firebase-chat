@@ -8,12 +8,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FormsModule} from "@angular/forms";
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyC18sqDSDTv8Qla28WPk4XZnmyTfy5Wcyk',
-  authDomain: 'huseyin-babal.firebaseapp.com',
-  databaseURL: 'https://huseyin-babal.firebaseio.com',
-  projectId: 'huseyin-babal',
-  storageBucket: 'huseyin-babal.appspot.com',
-  messagingSenderId: '128896541689'
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 };
 
 @NgModule({
